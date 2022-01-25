@@ -54,46 +54,52 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _buildStackFrontend() {
-    return Scrollbar(
-      child: Column(
-        children: [
-          Row(
+    return Column(
+      children: [
+        Expanded(
+          child: Row(
             children: [
               Expanded(
+                flex:3,
                 child: Column(
                   children: [
-                    Text('Hello Maxwell'),
+                    Text('Hello Maxwell,'),
                     Text(
                       'Book you next flight',
-                      style: TextStyle(fontWeight: FontWeight.bold),
+                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),
                     ),
                   ],
                   crossAxisAlignment: CrossAxisAlignment.start,
                 ),
               ),
               Expanded(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
+                flex: 1,
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    Container(
-                      height: 50,
-                      width: 50,
-                      child: ClipOval(
-                        child: Image.asset(
-                          'assets/dog.jpeg',
-                          fit: BoxFit.fitWidth,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: [
+                        Container(
+                          height: 50,
+                          width: 50,
+                          child: ClipOval(
+                            child: Image.asset(
+                              'assets/dog.jpeg',
+                              fit: BoxFit.fitWidth,
+                            ),
+                          ),
                         ),
-                      ),
+                      ],
                     )
                   ],
                 ),
               )
             ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          Row(
+        ),
+        Expanded(
+          child: Row(
             children: [
               Expanded(
                 child: _buildElevatedButton(),
@@ -112,25 +118,20 @@ class MyApp extends StatelessWidget {
               ),
             ],
           ),
-          SizedBox(
-            height: 10,
-          ),
-          _buildCard(),
-          SizedBox(
-            height: 10,
-          ),
-          _buildRouteIndicator(),
-        ],
-      ),
+          flex: 1,
+        ),
+        Expanded(child: _buildCard(),flex:7),
+        Expanded(child: _buildRouteIndicator(),flex: 3,),
+      ],
     );
   }
 
   Widget _buildRouteIndicator() {
     return Card(
-      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
-      elevation: 4,
+      shape: RoundedRectangleBorder(
+        borderRadius: BorderRadius.circular(15),
+      ),
       child: Container(
-        width: 350,
         height: 150,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -139,88 +140,7 @@ class MyApp extends StatelessWidget {
               flex: 1,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: [
-                          Text(
-                            'NYC',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text('New York'),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Center(
-                        child: Row(
-                          children: [
-                            Icon(Icons.circle_outlined, size: 15),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            RotatedBox(
-                              quarterTurns: 1,
-                              child: Icon(
-                                Icons.airplanemode_active_rounded,
-                                size: 15,
-                              ),
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.remove,
-                              size: 15,
-                            ),
-                            Icon(
-                              Icons.circle_outlined,
-                              size: 15,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: [
-                          Text(
-                            'LDN',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text('London'),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                child: _buildCityIndicator(),
               ),
             ),
             Expanded(
@@ -249,23 +169,7 @@ class MyApp extends StatelessWidget {
                     width: 16,
                   ),
                   Center(
-                    child: Row(
-                      children: [
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                        Icon(Icons.remove),
-                      ],
-                    ),
+                    child: _buildDashedLine(),
                   ),
                   Container(
                     width: 0,
@@ -292,60 +196,7 @@ class MyApp extends StatelessWidget {
               flex: 1,
               child: Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: [
-                          Text(
-                            '23 Dec',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text('Date'),
-                        ],
-                      ),
-                    ),
-                    Expanded(
-                      flex: 2,
-                      child: Center(
-                        child: Column(
-                          children: [
-                            Container(
-                              decoration: BoxDecoration(
-                                color: Color(0xFF4588EF),
-                                borderRadius: BorderRadius.circular(2),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.all(1.0),
-                                child: Text(
-                                  '9:00 AM',
-                                  style: TextStyle(
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.white),
-                                ),
-                              ),
-                            ),
-                            Text('Depature'),
-                          ],
-                        ),
-                      ),
-                    ),
-                    Expanded(
-                      flex: 1,
-                      child: Column(
-                        children: [
-                          Text(
-                            'NL-41',
-                            style: TextStyle(fontWeight: FontWeight.bold),
-                          ),
-                          Text('Number'),
-                        ],
-                      ),
-                    )
-                  ],
-                ),
+                child: _buildTimeInfo(),
               ),
             ),
           ],
@@ -354,11 +205,203 @@ class MyApp extends StatelessWidget {
     );
   }
 
+  Widget _buildCityIndicator() {
+    return Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        Text(
+                          'NYC',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text('New York'),
+                      ],
+                    ),
+                  ),
+                  Expanded(
+                    flex: 2,
+                    child: Center(
+                      child: _buildFromTo(),
+                    ),
+                  ),
+                  Expanded(
+                    flex: 1,
+                    child: Column(
+                      children: [
+                        Text(
+                          'LDN',
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        Text('London'),
+                      ],
+                    ),
+                  )
+                ],
+              );
+  }
+
+  Widget _buildTimeInfo() {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              Text(
+                '23 Dec',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text('Date'),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: Center(
+            child: Column(
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    color: Color(0xFF4588EF),
+                    borderRadius: BorderRadius.circular(2),
+                  ),
+                  child: Padding(
+                    padding: const EdgeInsets.all(1.0),
+                    child: Text(
+                      '9:00 AM',
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold, color: Colors.white),
+                    ),
+                  ),
+                ),
+                Text('Depature'),
+              ],
+            ),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              Text(
+                'NL-41',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text('Number'),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _buildDashedLine() {
+    return Row(
+      children: [
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+        Icon(Icons.remove,color: Colors.black12,),
+
+      ],
+    );
+  }
+
+  Widget _buildFromTo() {
+    return Row(
+      children: [
+        Expanded(child: Icon(Icons.circle_outlined, size: 6),),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: RotatedBox(
+            quarterTurns: 1,
+            child: Icon(
+              Icons.airplanemode_active_rounded,
+
+            ),
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+          ),
+        ),
+        Expanded(child: Icon(Icons.circle_outlined,size: 6, ),),
+      ],
+    );
+  }
+
   Widget _buildCard() {
     return Card(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(15)),
       child: Container(
-        width: 350,
         child: Padding(
           padding: const EdgeInsets.all(15.0),
           child: Column(
@@ -554,24 +597,30 @@ class MyApp extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-          Container(
-            height: 17,
-            width: 17,
-            decoration: BoxDecoration(
-              color: Colors.red,
-              borderRadius: BorderRadius.circular(10),
-            ),
-            child: Icon(
-              Icons.map,
-              size: 14,
+          Expanded(
+            flex: 1,
+            child: Container(
+              height: 17,
+              width: 17,
+              decoration: BoxDecoration(
+                color: Colors.red,
+                borderRadius: BorderRadius.circular(10),
+              ),
+              child: Icon(
+                Icons.map,
+                size: 14,
+              ),
             ),
           ),
           SizedBox(
-            width: 2,
+            width: 5,
           ),
-          const Text(
-            'Round Trip',
-            style: TextStyle(fontSize: 10),
+          Expanded(
+            flex: 3,
+            child: const Text(
+              'Round Trip',
+              style: TextStyle(fontSize: 10),
+            ),
           ),
         ],
       ),
