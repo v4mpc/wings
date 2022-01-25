@@ -11,8 +11,8 @@ class MyApp extends StatelessWidget {
   //   // primaryColor: Colors.white
   // );
 
-  final Color orange = Colors.orange;
-  final Color darkOrange = Colors.deepOrange;
+  final Color orange = const Color(0xFFFFC723);
+  final Color darkOrange = const Color(0xFFFFC723);
   final Color blue = Colors.blueAccent;
   final Color lightBlue = Colors.lightBlueAccent;
 
@@ -60,13 +60,14 @@ class MyApp extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                flex:3,
+                flex: 3,
                 child: Column(
                   children: [
                     Text('Hello Maxwell,'),
                     Text(
                       'Book you next flight',
-                      style: TextStyle(fontWeight: FontWeight.bold,fontSize: 24),
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 24),
                     ),
                   ],
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,26 +103,31 @@ class MyApp extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: _buildElevatedButton(),
+                child: _buildElevatedButton(orange, darkOrange, Colors.white,'Round Trip'),
               ),
               SizedBox(
                 width: 4,
               ),
               Expanded(
-                child: _buildElevatedButton(),
+                child: _buildElevatedButton(
+                    Colors.white, Colors.black12, Colors.black,'One Way'),
               ),
               SizedBox(
                 width: 4,
               ),
               Expanded(
-                child: _buildElevatedButton(),
+                child: _buildElevatedButton(
+                    Colors.white, Colors.black12, Colors.black,'Multi City'),
               ),
             ],
           ),
           flex: 1,
         ),
-        Expanded(child: _buildCard(),flex:7),
-        Expanded(child: _buildRouteIndicator(),flex: 3,),
+        Expanded(child: _buildCard(), flex: 7),
+        Expanded(
+          child: _buildRouteIndicator(),
+          flex: 3,
+        ),
       ],
     );
   }
@@ -207,40 +213,40 @@ class MyApp extends StatelessWidget {
 
   Widget _buildCityIndicator() {
     return Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Text(
-                          'NYC',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text('New York'),
-                      ],
-                    ),
-                  ),
-                  Expanded(
-                    flex: 2,
-                    child: Center(
-                      child: _buildFromTo(),
-                    ),
-                  ),
-                  Expanded(
-                    flex: 1,
-                    child: Column(
-                      children: [
-                        Text(
-                          'LDN',
-                          style: TextStyle(fontWeight: FontWeight.bold),
-                        ),
-                        Text('London'),
-                      ],
-                    ),
-                  )
-                ],
-              );
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              Text(
+                'NYC',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text('New York'),
+            ],
+          ),
+        ),
+        Expanded(
+          flex: 2,
+          child: Center(
+            child: _buildFromTo(),
+          ),
+        ),
+        Expanded(
+          flex: 1,
+          child: Column(
+            children: [
+              Text(
+                'LDN',
+                style: TextStyle(fontWeight: FontWeight.bold),
+              ),
+              Text('London'),
+            ],
+          ),
+        )
+      ],
+    );
   }
 
   Widget _buildTimeInfo() {
@@ -302,20 +308,58 @@ class MyApp extends StatelessWidget {
   Widget _buildDashedLine() {
     return Row(
       children: [
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-        Icon(Icons.remove,color: Colors.black12,),
-
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
+        Icon(
+          Icons.remove,
+          color: Colors.black12,
+        ),
       ],
     );
   }
@@ -323,29 +367,39 @@ class MyApp extends StatelessWidget {
   Widget _buildFromTo() {
     return Row(
       children: [
-        Expanded(child: Icon(Icons.circle_outlined, size: 6),),
         Expanded(
           child: Icon(
-            Icons.remove,
-            size: 8,
+            Icons.circle_outlined,
+            size: 6,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
+          ),
+        ),
+        Expanded(
+          child: Icon(
+            Icons.remove,
+            size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
@@ -359,7 +413,7 @@ class MyApp extends StatelessWidget {
             quarterTurns: 1,
             child: Icon(
               Icons.airplanemode_active_rounded,
-
+              color: Color(0xFFFFC723),
             ),
           ),
         ),
@@ -367,33 +421,44 @@ class MyApp extends StatelessWidget {
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
         Expanded(
           child: Icon(
             Icons.remove,
             size: 8,
+            color: Color(0xFFFFC723),
           ),
         ),
-        Expanded(child: Icon(Icons.circle_outlined,size: 6, ),),
+        Expanded(
+          child: Icon(
+            Icons.circle_outlined,
+            size: 6,
+            color: Color(0xFFFFC723),
+          ),
+        ),
       ],
     );
   }
@@ -582,9 +647,11 @@ class MyApp extends StatelessWidget {
     );
   }
 
-  Widget _buildElevatedButton() {
+  Widget _buildElevatedButton(
+      Color buttonColor, Color iconBackgroundColor, Color fontColor,String text) {
     return ElevatedButton(
       style: ButtonStyle(
+        backgroundColor: MaterialStateProperty.all<Color>(buttonColor),
         shape: MaterialStateProperty.all<RoundedRectangleBorder>(
           RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(20.0),
@@ -603,12 +670,13 @@ class MyApp extends StatelessWidget {
               height: 17,
               width: 17,
               decoration: BoxDecoration(
-                color: Colors.red,
+                color: iconBackgroundColor,
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(
                 Icons.map,
                 size: 14,
+                color: fontColor,
               ),
             ),
           ),
@@ -617,9 +685,12 @@ class MyApp extends StatelessWidget {
           ),
           Expanded(
             flex: 3,
-            child: const Text(
-              'Round Trip',
-              style: TextStyle(fontSize: 10),
+            child: Text(
+              text,
+              style: TextStyle(
+                fontSize: 10,
+                color:fontColor
+              ),
             ),
           ),
         ],
