@@ -103,21 +103,21 @@ class MyApp extends StatelessWidget {
           child: Row(
             children: [
               Expanded(
-                child: _buildElevatedButton(orange, darkOrange, Colors.white,'Round Trip'),
+                child: _buildElevatedButton(orange, darkOrange, Colors.white,'Round Trip',Icons.cached),
               ),
               SizedBox(
                 width: 4,
               ),
               Expanded(
                 child: _buildElevatedButton(
-                    Colors.white, Colors.black12, Colors.black,'One Way'),
+                    Colors.white, Colors.black12, Colors.black,'One Way',Icons.arrow_forward),
               ),
               SizedBox(
                 width: 4,
               ),
               Expanded(
                 child: _buildElevatedButton(
-                    Colors.white, Colors.black12, Colors.black,'Multi City'),
+                    Colors.white, Colors.black12, Colors.black,'Multi City',Icons.timeline),
               ),
             ],
           ),
@@ -221,7 +221,7 @@ class MyApp extends StatelessWidget {
             children: [
               Text(
                 'NYC',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold,color:Color(0xFF4588EF)),
               ),
               Text('New York'),
             ],
@@ -239,7 +239,7 @@ class MyApp extends StatelessWidget {
             children: [
               Text(
                 'LDN',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold, color:Color(0xFF4588EF)),
               ),
               Text('London'),
             ],
@@ -259,7 +259,7 @@ class MyApp extends StatelessWidget {
             children: [
               Text(
                 '23 Dec',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold, color:Color(0xFF4588EF),),
               ),
               Text('Date'),
             ],
@@ -272,15 +272,15 @@ class MyApp extends StatelessWidget {
               children: [
                 Container(
                   decoration: BoxDecoration(
-                    color: Color(0xFF4588EF),
-                    borderRadius: BorderRadius.circular(2),
+                    color: Color(0xFF4588EF).withOpacity(0.2),
+                    borderRadius: BorderRadius.circular(4),
                   ),
                   child: Padding(
-                    padding: const EdgeInsets.all(1.0),
+                    padding: const EdgeInsets.all(2.5),
                     child: Text(
                       '9:00 AM',
                       style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.white),
+                          fontWeight: FontWeight.bold, color:Color(0xFF4588EF),),
                     ),
                   ),
                 ),
@@ -295,7 +295,7 @@ class MyApp extends StatelessWidget {
             children: [
               Text(
                 'NL-41',
-                style: TextStyle(fontWeight: FontWeight.bold),
+                style: TextStyle(fontWeight: FontWeight.bold, color:Color(0xFF4588EF),),
               ),
               Text('Number'),
             ],
@@ -648,7 +648,7 @@ class MyApp extends StatelessWidget {
   }
 
   Widget _buildElevatedButton(
-      Color buttonColor, Color iconBackgroundColor, Color fontColor,String text) {
+      Color buttonColor, Color iconBackgroundColor, Color fontColor,String text,IconData iconName) {
     return ElevatedButton(
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(buttonColor),
@@ -674,7 +674,7 @@ class MyApp extends StatelessWidget {
                 borderRadius: BorderRadius.circular(10),
               ),
               child: Icon(
-                Icons.map,
+                iconName,
                 size: 14,
                 color: fontColor,
               ),
